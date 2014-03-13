@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <link rel="shortcut icon" href="images/alarm.ico">
+        <script src="lib/jquery.min.js"></script>
+        <script src="lib/jquery.easing.1.3.js" ></script>
+        <script src="lib/jquery.animate-colors-min.js" ></script>
+        <script src="js/mod.js"></script>
+        <script src="js/mainPageView.js"></script>
+        <script src="js/mainAlarmView.js"></script>
+        <script src="js/newAlarmView.js"></script>
+        <link rel="stylesheet" href="mainPage.css"></link>
+        <title>Waker Upper</title>
+    </head>
+    <body>
+        <div class="header">
+            <div class="iconTray">
+                <span class="iconRoot">
+                    <div class="dimensionless">
+                        <div class="iconBackgroundBackground"></div>
+                    </div>
+                    <div class="dimensionless">
+                        <span class="iconBackground"></span>
+                    </div>
+                    <div class="dimensionless">
+                        <button class="iconCover alarmIconCover" type="button" data-tab='{ "controlledTab": "alarmTab" }'></button>
+                    </div>
+                </span>
+                <span class="iconRoot">
+                    <div class="dimensionless">
+                        <div class="iconBackgroundBackground"></div>
+                    </div>
+                    <div class="dimensionless">
+                        <span class="iconBackground"></span>
+                    </div>
+                    <div class="dimensionless">
+                        <button class="iconCover helpIconCover" type="button" data-tab='{ "controlledTab": "helpTab" }'></button>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <hr class="headerRule"/>
+
+        <div class="tab alarmTab">
+            <div class="newAlarmView">
+                <button type="button" >New Alarm</button>
+                <div class="newAlarmForm">
+                    <div class="noWrap">
+                        <input type="text" class="hourInput"></input>
+                        <span><font>:</font></span>
+                        <input type="text" class="minuteInput"></input>
+
+                        <span><font>-</font></span>
+                        <input type="text" class="ampmInput"></input>
+                    </div>
+                    <div >
+                    </div>
+                    <div class="bottomDiv">
+                        <button class="cancelNewAlarm" type="button"></button>
+                        <button class="confirmNewAlarm" type="button"></button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div id="alarmInstanceHolder"></div>
+            </div>
+        </div>
+
+        <div class="tab helpTab" >
+            <p>nothing here yet</p>
+        </div>
+        <div id="videoID">
+            <div>
+                <span class="alarmInputHolder"><input type="text" class="videoInput"></input></span>
+                <button type="button" class="setVideo" >Set alarm video</button>
+            </div>
+        </div>
+    </body>
+</html>

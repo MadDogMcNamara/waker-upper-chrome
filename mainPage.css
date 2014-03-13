@@ -1,0 +1,256 @@
+@font-face {
+    font-family: "Digital-7";
+    src: url("fonts/digital-7.ttf") format("truetype");
+}
+
+.digitalFont
+{
+  font-family: "Digital-7";
+}
+
+body
+{
+  background-color:#000000;
+}
+
+div.dimensionless
+{
+  position: relative;
+  width: 0;
+  height: 0
+}
+
+div.newAlarmView
+{
+  width:400;
+  margin: 0px auto;
+  border-style:solid;
+  border-width:2px;
+  border-color:white;
+
+}
+
+.header
+{
+  height:180px;
+  line-height:180px;
+  -webkit-transform: scale(.55,.55);
+  margin-bottom:-45px;
+  margin-top:-45px;
+}
+
+.headerRule
+{
+  margin-bottom:0px;
+}
+
+.iconTray
+{
+  position:absolute;
+  left:50%;
+  margin-left: -180px;
+  margin-right: -180px;
+  margin-bottom: 0px;
+}
+
+.iconRoot
+{
+  float:left;
+  width: 180px;
+  height: 165px;
+  margin: 5px 5px 5px 5px
+}
+
+p,font
+{
+  color:white;
+}
+
+.iconCover
+{
+  background-color:transparent;
+  background-size: 100% 100%;
+  width: 180px;
+  height: 165px;
+  background-repeat: no-repeat;
+  margin:0px 0px 0px 0px;
+  padding:0px 0px 0px 0px;
+  border:none;
+  border-spacing:0px 0px;
+  z-index:3;
+  outline:black solid thin;
+}
+
+.alarmIconCover
+{
+  background-image: url('images/AlarmClock.png');
+}
+
+.helpIconCover
+{
+  background-image: url('images/Help.png');
+}
+
+
+.iconBackground, .iconBackgroundBackground
+{
+  width:180px;
+  height:0px;
+  margin:0px 0px 0px 0px;
+  padding:0px 0px 0px 0px;
+  border:none;
+  background-size: 100% 100%;
+  background-color: red;
+  z-index:1;
+}
+
+.iconBackgroundBackground
+{
+  width:180px;
+  height:165px;
+  background-color: grey;
+  z-index:1;
+}
+.selectedBackgroundBackground
+{
+  background-color: blue;
+}
+
+.setVideo
+{
+  float:right;
+}
+
+.videoInput
+{
+  float:left;
+  width:calc(100% - 120px);
+}
+
+#videoID
+{
+  width:640px;
+  height:auto;
+  margin:0 auto;
+}
+
+.alarmVideo
+{
+  width:100%;
+  height:390px;
+  border:none;
+}
+
+
+
+.alarmInstanceRoot
+{
+  float:left;
+  width:200px;
+  height:200px;
+  border-style:solid;
+  border-width:3px;
+  border-color:white;
+  padding:30px;
+  text-align:center;
+  font-size:45pt;
+  position: relative;
+}
+
+.deleteIcon
+{
+  position:absolute;
+  bottom:0;
+  background-image: url('images/trash.png');
+  width:100;
+  height:100;
+  margin-left:-50;
+  margin-bottom:5px;
+}
+
+span.alarmInstanceRoot > p
+{
+  margin:0px;
+}
+
+
+#alarmInstanceHolder
+{
+  min-height:260px;
+  overflow:hidden;
+}
+
+div.newAlarmForm
+{
+  position:relative;
+  width: 340px;
+  min-height:300px;
+  padding: 0px 30px;
+}
+
+div.newAlarmView
+{
+  margin-top:0px;
+}
+div.newAlarmView > button
+{
+  margin:0;
+  border:none;
+  width:100%;
+  height:100%;
+}
+
+div.newAlarmView input
+{
+  float:left;
+  text-align:center;
+  width:80px;
+  height:90px;
+  font-family: "Digital-7";
+  font-size:60pt;
+}
+
+div.newAlarmView span
+{
+  text-align:center;
+  float:left;
+  min-width:50px;
+}
+div.newAlarmView font
+{
+  min-width:50px;
+  font-family: "Digital-7";
+  font-size:60pt;
+}
+
+div.noWrap
+{
+  overflow:auto;
+}
+
+
+div.bottomDiv
+{
+  margin-top: 100px;
+}
+
+div.newAlarmForm button
+{
+  width:80px;
+  height:80px;
+  outline:none;
+  border:none;
+  border-radius:40px;
+}
+
+button.cancelNewAlarm
+{
+  background-color:red;
+  float:left;
+}
+button.confirmNewAlarm
+{
+  background-color:green;
+  float:right;
+}
+

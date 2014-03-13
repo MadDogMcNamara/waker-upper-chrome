@@ -1,0 +1,19 @@
+ {
+    "manifest_version": 2,
+
+    "name": "Waker Upper",
+    "description": "A simple alarm clock and clock accessories extension",
+    "version": "0.1",
+
+    "permissions": [
+        "alarms","storage"
+    ],
+
+    "browser_action": {
+        "default_icon": "images/icon.png"
+    },
+
+   "background": {
+     "page": "eventPage.html"
+   }
+ }
