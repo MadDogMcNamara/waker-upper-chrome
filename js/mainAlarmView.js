@@ -88,7 +88,6 @@ var alarmView = {};
     var pattern = /^([0-9]{1,2}):([0-9]{1,2})\s*(am|pm)$/i;
 
     var matchResult = pattern.exec(alarmText);
-    console.debug(matchResult);
     if ( matchResult ){
       var hour = matchResult[1];
       var minute = matchResult[2];
@@ -105,9 +104,6 @@ var alarmView = {};
       if ( alarmSet < nowTime ){
         alarmSet = new Date( alarmSet.getTime() + 1000 * 60 * 60 * 24 );
       }
-
-      console.debug(nowTime);
-      console.debug(alarmSet);
       return alarmSet;
     }
   }
@@ -139,7 +135,6 @@ var alarmView = {};
       var videoUrl = videoText[0].value;
       var pattern = /^(?:http:)?\/{0,2}(?:www\.)?youtube\.com\/(?:watch)?\??(?:v=)([A-Za-z0-9_\-]*)/;
       var result = pattern.exec(videoUrl);
-      console.debug(result);
       if ( result ){
         // save to storage
         chrome.storage.sync.set( {"alarmVideoID": result[1]}, function(){} );
@@ -150,22 +145,15 @@ var alarmView = {};
 
     // get and inject the video
     chrome.storage.sync.get( "alarmVideoID", function(items) {
-      console.debug(items);
       if ( items && items.alarmVideoID ){
-        console.debug("injectVideo");
         injectYoutubeVideo( items.alarmVideoID );
       }
     });
-
-
-
   });
 
 
   chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-      console.debug("gotmessage");
-      console.debug(request);
       if ( request.name && request.name === "alarmOff" ){
         fireAlarm( request.alarmData );
       }

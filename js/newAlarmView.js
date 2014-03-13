@@ -1,7 +1,5 @@
 // The form to create a new alarm
 {
-
-
   var collapsedHeight = 50;
   var collapsedWidth = 150;
   var expandedHeight = 300;
@@ -18,7 +16,6 @@
   var hourText = "";
   var minuteText = "";
   var ampmText = "";
-
 
   var cancelButton;
   var confirmButton;
@@ -67,7 +64,6 @@
     confirmButton = newAlarmView.find("button.confirmNewAlarm");
 
     function onClick(){
-      console.debug(this);
       this.setSelectionRange(0, 0);
       this.setSelectionRange(0, this.value.length);
 
@@ -167,9 +163,6 @@
 
       this.value = ampmText;
     }
-
-
-
     hourInput.click( onClick );
     hourInput.focus( onClick );
     minuteInput.click( onClick );
@@ -194,14 +187,9 @@
       collapseForm();
     });
 
-
-
     // event listener for new alarm button
     openFormButton.click(expandForm);
 
     collapseForm(1);
-    // expandForm();
-
   });
-
 }

@@ -5,7 +5,6 @@
   var openAlarmTab;
 
   function gotoMainPage(f) {
-    console.debug(openAlarmTab);
     if ( !openAlarmTab ){
       function listener (tabId, changeInfo, tab) {
         if ( changeInfo.status && changeInfo.status === "complete" ){
@@ -27,9 +26,8 @@
 
   function loadAlarmData( f ){
     chrome.storage.sync.get( ["alarmsData"], function( data ) {
-      alarmsData = data.alarmsData;
+      alarmsData = data.alarmsData || [];
       alarmsDataChanged();
-      console.debug( alarmsData );
       f();
     });
   }
@@ -51,7 +49,6 @@
       var alarmData = alarmsData[i];
 
       if ( !alarmData.repeating ){
-        console.debug(alarmData);
         chrome.alarms.create( alarmData.id, { when: alarmData.alarmTime } );
       }
     }
@@ -74,7 +71,6 @@
     if ( alarmIndex != -1 ){
       var alarmData = alarmsData[alarmIndex];
       alarmsData.splice( alarmIndex, 1 );
-      console.debug("alarm " + alarmData.id + " went off" );
       gotoMainPage(function() {
         chrome.tabs.sendMessage(openAlarmTab.id, {name:"alarmOff", "alarmData": alarmData}, function() {});
       });
@@ -89,7 +85,6 @@
 
   chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-      console.debug( request );
       if ( request.name === "newAlarm" ){
         request.alarmData && request.alarmData.alarmTime && !isNaN(request.alarmData.alarmTime) && alarmsData.push( request.alarmData );
       }
@@ -108,8 +103,6 @@
 
 
     chrome.tabs.onUpdated.addListener( function(tabId, changeInfo, tab) {
-      console.debug( "changed");
-      console.debug(changeInfo);
       if ( openAlarmTab && tabId === openAlarmTab.id && changeInfo.status && changeInfo.status === "complete" ){
         alarmsDataChanged();
       }
@@ -117,7 +110,6 @@
 
     chrome.tabs.onRemoved.addListener( function(tabId, removeInfo) {
       if ( openAlarmTab && tabId === openAlarmTab.id ){
-        console.debug( "removed");
         openAlarmTab = null;
       }
     });
